@@ -11,6 +11,10 @@ public partial class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
+        builder.Host.UseWindowsService();
+
+        builder.WebHost.UseUrls("http://localhost:5000");
+
         builder.Services.Configure<InternetMonitorOptions>(
             builder.Configuration.GetSection(InternetMonitorOptions.SectionName));
 
